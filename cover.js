@@ -3,29 +3,42 @@
  * @author Niklas Tegnander <niklas@youpic.com>
  */
 (function (window, document, undefined) {
-  var url = 'https://api.youpic.com/web_image';
 
-  var xhr = new XMLHttpRequest();
+  var updateTab = function (image_url, username, display_name) {
+    var bg = document.querySelector('.bg-photo');
+    bg.style.backgroundImage = 'url(' + image_url + ')';
+
+    // Fallback if no display name is set
+    display_name = display_name === '' ? username : display_name;
+
+    var author = document.querySelector('.author');
+    author.href = 'https://youpic.com/' + username;
+    author.innerHTML = 'Cover by ' + display_name;
+  };
+
+  // Fetch from cache
+  chrome.storage.sync.get('last_result', function (result) {
+    if (!result.last_result) return;
+
+    updateTab(result.last_result.image_urls.huge,
+      result.last_result.user.username, result.last_result.user.display_name);
+  });
+
+  var url = 'https://api.youpic.com/web_image', xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
       var result = JSON.parse(xhr.responseText);
 
       if (result && result.image_urls && result.user) {
-        document.querySelector('.bg-photo').style.backgroundImage = 'url(' + result.image_urls.huge + ')';
+        updateTab(result.image_urls.huge, result.user.username,
+          result.user.display_name);
 
-        var display_name = result.user.display_name || result.user.username;
-
-        var author = document.createElement('a');
-        author.className = 'author';
-        author.href = 'https://youpic.com/' + result.user.username;
-        var text = document.createTextNode('Cover by ' + display_name);
-        author.appendChild(text);
-
-        document.body.appendChild(author);
+        // Update cache
+        chrome.storage.sync.set({ 'last_result': result }); // Omit callback
       }
     }
-  }
+  };
 
   xhr.open('GET', url, true);
   xhr.send();
