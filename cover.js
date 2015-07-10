@@ -1,4 +1,5 @@
 /**
+ * @author Philip Laine <philip.laine@gmail.com>
  * @author Niklas Tegnander <niklas@youpic.com>
  */
 (function (window, document, undefined) {
