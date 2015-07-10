@@ -18,11 +18,19 @@ body {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
   background-color: rgba(0,0,0,0.3);
 }
 
 .author, .logo {
   position: fixed;
+  z-index: 10;
+  opacity: 0.4;
 }
 
 .author {
@@ -31,12 +39,11 @@ body {
 	color: white;
   right: 1em;
   bottom: 1em;
-  text-decoration: none;
-  opacity: 0.3;
+  text-decoration: none !important;
 }
 
+.logo:hover,
 .author:hover {
-  text-decoration: underline;
   opacity: 1;
 }
 
@@ -47,7 +54,7 @@ body {
   width: 150px;
   background: url(https://youpic.com/images/logo/logo-landing.png) no-repeat center center;
   background-size: cover;
-  opacity: 1;
+  cursor: pointer;
 }
 
 .profile {
