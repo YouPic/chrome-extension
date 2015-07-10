@@ -19,7 +19,7 @@
         var author = document.createElement('a');
         author.className = 'author';
         author.href = 'https://youpic.com/' + result.user.username;
-        var text = document.createTextNode('\u00A9 ' + display_name);
+        var text = document.createTextNode('Cover by ' + display_name);
         author.appendChild(text);
 
         document.body.appendChild(author);
