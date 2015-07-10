@@ -11,19 +11,22 @@
     if (xhr.readyState == 4) {
       var result = JSON.parse(xhr.responseText);
 
-      if (result && result.image_urls) {
-        document.querySelector(".bg-photo").style.backgroundImage = 'url(' + result.image_urls.huge + ')';
+      if (result && result.image_urls && result.user) {
+        document.querySelector('.bg-photo').style.backgroundImage = 'url(' + result.image_urls.huge + ')';
 
-        var footer = document.createElement("div");
-        footer.className = "footer";
-        var text = document.createTextNode('Cover by ' + result.user.display_name);
-        footer.appendChild(text);
+        var display_name = result.user.display_name || result.user.username;
 
-        document.body.appendChild(footer);
+        var author = document.createElement('a');
+        author.className = 'author';
+        author.href = 'https://youpic.com/' + result.user.username;
+        var text = document.createTextNode('\u00A9 ' + display_name);
+        author.appendChild(text);
+
+        document.body.appendChild(author);
       }
     }
   }
 
-  xhr.open("GET", url, true);
+  xhr.open('GET', url, true);
   xhr.send();
 })(window, document);
