@@ -1,10 +1,10 @@
 html, body {
-        height: 100%;
-        margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 .bg-photo {
-  background-image:url(https://df0179xsabjj8.cloudfront.net/huge/224722_Okk6PcDnzTsgMRtI_101741.jpg);
+  /*background-image: url(https://df0179xsabjj8.cloudfront.net/huge/224722_Okk6PcDnzTsgMRtI_101741.jpg);*/
   height: 100%;
   width: 100%;
   background-position: center center;
