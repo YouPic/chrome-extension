@@ -8,8 +8,8 @@ body {
 }
 
 @font-face {
-    font-family: Roboto;
-    src: url(Roboto/Roboto-Regular.ttf);
+  font-family: Roboto;
+  src: url(Roboto/Roboto-Regular.ttf);
 }
 
 .bg-photo {
@@ -23,7 +23,6 @@ body {
 
 .author, .logo {
   position: fixed;
-  bottom: 1em;
 }
 
 .author {
@@ -31,8 +30,9 @@ body {
 	text-align: right;
 	color: white;
   right: 1em;
+  bottom: 1em;
   text-decoration: none;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .author:hover {
@@ -41,12 +41,13 @@ body {
 }
 
 .logo {
-  left: 1em;
+  top: 2em;
+  left: 2em;
   height: 57.5px;
   width: 150px;
   background: url(https://youpic.com/images/logo/logo-landing.png) no-repeat center center;
   background-size: cover;
-  opacity: 0.1;
+  opacity: 1;
 }
 
 .profile {
