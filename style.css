@@ -48,3 +48,9 @@ body {
   background-size: cover;
   opacity: 0.1;
 }
+
+.profile {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
