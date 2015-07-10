@@ -1,3 +1,6 @@
+/**
+ * @author Niklas Tegnander <niklas@youpic.com>
+ */
 (function (window, document, undefined) {
   var url = 'https://api.youpic.com/web_image';
 
