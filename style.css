@@ -27,7 +27,7 @@ body {
   background-color: rgba(0,0,0,0.3);
 }
 
-.author, .logo {
+.author, .logo, .profile {
   position: fixed;
   z-index: 10;
   opacity: 0.4;
@@ -37,7 +37,7 @@ body {
   font-family: Roboto;
 	text-align: right;
 	color: white;
-  right: 1em;
+  right: 3.5em;
   bottom: 1em;
   text-decoration: none !important;
 }
@@ -59,6 +59,10 @@ body {
 
 .profile {
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  right: 1em;
+  bottom: .8em;
+  background-size: cover;
+  opacity: 1;
 }

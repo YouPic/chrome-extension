@@ -4,7 +4,7 @@
  */
 (function (window, document, undefined) {
 
-  var updateTab = function (image_url, username, display_name) {
+  var updateTab = function (image_url, username, display_name, profile_image) {
     var bg = document.querySelector('.bg-photo');
     bg.style.backgroundImage = 'url(' + image_url + ')';
 
@@ -14,6 +14,10 @@
     var author = document.querySelector('.author');
     author.href = 'https://youpic.com/' + username;
     author.innerHTML = 'Cover by ' + display_name;
+
+    var profile = document.querySelector('.profile');
+    profile.style.backgroundImage = 'url(' + profile_image + ')';
+
   };
 
   // Fetch from cache
@@ -32,7 +36,7 @@
 
       if (result && result.image_urls && result.user) {
         updateTab(result.image_urls.huge, result.user.username,
-          result.user.display_name);
+          result.user.display_name, result.user.profile_image_urls.small);
 
         // Update cache
         chrome.storage.sync.set({ 'last_result': result }); // Omit callback
