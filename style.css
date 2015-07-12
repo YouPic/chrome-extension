@@ -1,13 +1,72 @@
+@font-face {
+  font-family: Roboto;
+  src: url(Roboto/Roboto-Regular.ttf);
+}
+
+html {
+  overflow: hidden;
+}
+
 html, body {
-        height: 100%;
-        margin: 0;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font: 14px/1.5em Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: white;
+}
+
+.author, .logo {
+  position: absolute;
+  transition: opacity 0.2s;
+  opacity: 0.5;
+}
+
+.author:hover, .logo:hover {
+  opacity: 1;
+}
+
+.author {
+	text-align: right;
+  right: 1em;
+  bottom: 1em;
+}
+
+.author a {
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+  padding-right: 2.5em;
+}
+
+.author a:hover {
+  text-decoration: underline;
+}
+
+.author a .profile {
+  position: absolute;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  right: 0;
+  background-size: cover;
+}
+
+.logo {
+  bottom: 1em;
+  left: 1em;
+  height: 28.75px;
+  width: 75px;
+  background: url(https://youpic.com/images/logo/logo-landing.png) no-repeat center center;
+  background-size: cover;
 }
 
 .bg-photo {
-  background-image:url(https://df0179xsabjj8.cloudfront.net/huge/224722_Okk6PcDnzTsgMRtI_101741.jpg);
   height: 100%;
   width: 100%;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: rgba(0,0,0,0.3);
 }
