@@ -1,15 +1,66 @@
+@font-face {
+  font-family: Roboto;
+  src: url(Roboto/Roboto-Regular.ttf);
+}
+
+html {
+  overflow: hidden;
+}
+
 html, body {
   height: 100%;
   margin: 0;
 }
 
 body {
-  font: 14px/1.5em sans-serif;
+  font: 14px/1.5em Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: white;
 }
 
-@font-face {
-  font-family: Roboto;
-  src: url(Roboto/Roboto-Regular.ttf);
+.author, .logo {
+  position: absolute;
+  transition: opacity 0.2s;
+  opacity: 0.5;
+}
+
+.author:hover, .logo:hover {
+  opacity: 1;
+}
+
+.author {
+	text-align: right;
+  right: 1em;
+  bottom: 1em;
+}
+
+.author a {
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+  padding-right: 2.5em;
+}
+
+.author a:hover {
+  text-decoration: underline;
+}
+
+.author a .profile {
+  position: absolute;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  right: 0;
+  background-size: cover;
+}
+
+.logo {
+  bottom: 1em;
+  left: 1em;
+  height: 28.75px;
+  width: 75px;
+  background: url(https://youpic.com/images/logo/logo-landing.png) no-repeat center center;
+  background-size: cover;
 }
 
 .bg-photo {
@@ -18,51 +69,4 @@ body {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-}
-
-.overlay {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0,0,0,0.3);
-}
-
-.author, .logo, .profile {
-  position: fixed;
-  z-index: 10;
-  opacity: 0.4;
-}
-
-.author {
-  font-family: Roboto;
-	text-align: right;
-	color: white;
-  right: 3.5em;
-  bottom: 1em;
-  text-decoration: none !important;
-}
-
-.logo:hover,
-.author:hover {
-  opacity: 1;
-}
-
-.logo {
-  top: 2em;
-  left: 2em;
-  height: 57.5px;
-  width: 150px;
-  background: url(https://youpic.com/images/logo/logo-landing.png) no-repeat center center;
-  background-size: cover;
-  cursor: pointer;
-}
-
-.profile {
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  right: 1em;
-  bottom: .8em;
-  background-size: cover;
-  opacity: 1;
 }

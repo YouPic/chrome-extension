@@ -11,13 +11,12 @@
     // Fallback if no display name is set
     display_name = display_name === '' ? username : display_name;
 
-    var author = document.querySelector('.author');
-    author.href = 'https://youpic.com/' + username;
-    author.innerHTML = 'Cover by ' + display_name;
+    var author_link = document.querySelector('.author a');
+    author_link.href = 'https://youpic.com/' + username;
+    author_link.innerHTML = display_name + '<span class="profile"></span>'
 
     var profile = document.querySelector('.profile');
     profile.style.backgroundImage = 'url(' + profile_image + ')';
-
   };
 
   // Fetch from cache
@@ -25,7 +24,9 @@
     if (!result.last_result) return;
 
     updateTab(result.last_result.image_urls.huge,
-      result.last_result.user.username, result.last_result.user.display_name);
+      result.last_result.user.username,
+      result.last_result.user.display_name,
+      result.last_result.user.profile_image_urls.small);
   });
 
   var url = 'https://api.youpic.com/web_image', xhr = new XMLHttpRequest();
